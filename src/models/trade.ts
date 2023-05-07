@@ -1,9 +1,8 @@
 export interface Trade {
-    id: string;
-    symbol: string;
-    side: 'buy' | 'sell';
+    sequence: number;
+    time: number;
     price: number;
-    quantity: number;
-    timestamp: number;
+    size: number;
+    side: 'buy' | 'sell';
   }
   

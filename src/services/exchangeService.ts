@@ -12,9 +12,11 @@ export async function getPublicTradeHistory(
     );
     const trades = response.data.data.map((trade: any) => {
       return {
-        price: parseFloat(trade.price),
-        amount: parseFloat(trade.size),
+        sequence: trade.sequence,
         timestamp: trade.time,
+        price: parseFloat(trade.price),
+        size: parseFloat(trade.size),
+        side: trade.side,
       };
     });
     return trades;
