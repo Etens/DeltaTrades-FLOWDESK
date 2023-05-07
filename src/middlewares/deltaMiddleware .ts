@@ -14,6 +14,6 @@ export async function deltaMiddleware(req: Request, res: Response, next: NextFun
     }
   }
 
-  res.locals.delta = deltaCumulative;
+  res.locals.delta = Number(deltaCumulative.toFixed(2));
   next();
 }
