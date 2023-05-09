@@ -16,7 +16,7 @@ export class BinanceTradeHistoryAPI implements TradeHistoryAPI {
           timestamp: trade.time,
           price: parseFloat(trade.price),
           size: parseFloat(trade.qty),
-          side: trade.isBuyerMaker ? 'sell' : 'buy',
+          side: trade.isBuyerMaker ? 'SELL' : 'BUY',
         };
       });
       return trades;
