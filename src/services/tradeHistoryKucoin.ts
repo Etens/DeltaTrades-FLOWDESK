@@ -1,15 +1,16 @@
-import axios from 'axios';
-import { Trade } from '../models/trade';
-import { TradeHistoryAPI } from './tradeHistoryAPI';
+import axios from "axios";
+import { Trade } from "../models/trade";
+import { TradeHistoryAPI } from "./tradeHistoryAPI";
 
-const KUCOIN_API_BASE_URL = 'https://api.kucoin.com';
+const KUCOIN_API_BASE_URL = "https://api.kucoin.com";
 
 export class KucoinTradeHistoryAPI implements TradeHistoryAPI {
   async getPublicTradeHistory(tradingPair: string): Promise<Trade[]> {
     try {
       const response = await axios.get(
-        `${KUCOIN_API_BASE_URL}/api/v1/market/histories?symbol=${tradingPair}`,
+        `${KUCOIN_API_BASE_URL}/api/v1/market/histories?symbol=${tradingPair}`
       );
+      // --- TRADES MAPPING ---
       const trades = response.data.data.map((trade: any) => {
         return {
           sequence: trade.sequence,
